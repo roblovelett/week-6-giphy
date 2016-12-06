@@ -38,14 +38,17 @@ $(document).ready(function() {
     };
 
     $("input[name='new_gif_input']").keypress(function (e) {
+
         var key = e.which; //e.which jquery returns which keypress
-        
+
         if (key == 13) { //if the keypress is enter
+            e.preventDefault();
             var text = $("input[name='new_gif_input']").val();
             topics.push(text);
             var new_topic = topics[topics.length - 1];
             var new_button = $("<button>").attr("data-animal", new_topic).html(new_topic);
-            $("#buttons").append(new_button);                
+            $("#buttons").append(new_button);
+            return false;       
         };
         
     });
