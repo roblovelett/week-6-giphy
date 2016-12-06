@@ -34,7 +34,7 @@ $(document).ready(function() {
         $("#gifs").empty(); //empty the gifs div
         results = []; //clear results array if already full of objects from last button click
         var topic = this.id;
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10&rating=y&rating=g&rating=pg";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10&rating=y&rating=g&rating=pg";
 
         $.ajax({ url: queryURL, method: "GET" }).done(function(response) {    
             results = response.data;
