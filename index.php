@@ -13,14 +13,15 @@
 
 $(document).ready(function() { 
     var init = true;
-    var topics = ["dog","cat","rat","horse"];
-    console.log(topics);
     
     if (init) {
-        
+        var topics = ["dog","cat","rat","horse"]; //initial array of topics
+        var buttons_div = $("<div id='buttons'>");
+        $("main").append(buttons_div);
+
         for (i=0; i<topics.length; i++) { //add buttons to page
             var button = $("<button>").attr("data-animal", topics[i]).html(topics[i]);            
-            $("main").append(button);
+            $("#buttons").append(button);
         };
 
         $("main").append(f_build_html( //create form for new gif button
@@ -42,6 +43,9 @@ $(document).ready(function() {
         if (key == 13) { //if the keypress is enter
             var text = $("input[name='new_gif_input']").val();
             topics.push(text);
+            var new_topic = topics[topics.length - 1];
+            var new_button = $("<button>").attr("data-animal", new_topic).html(new_topic);
+            $("#buttons").append(new_button);                
         };
         
     });
